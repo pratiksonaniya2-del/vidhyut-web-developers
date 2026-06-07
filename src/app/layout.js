@@ -1,5 +1,6 @@
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import Home from '@/components/Home'
 
 export const metadata = {
   title: 'Vidhyut - EV Day',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Navbar />
+        <Home/>
         {children}
       </body>
     </html>
