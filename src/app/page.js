@@ -1,4 +1,4 @@
-import Achievements from '@/components/Achievements'
+import Achievements from '@/components/Event'
 
 export default function Page() {
   return (

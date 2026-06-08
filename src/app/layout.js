@@ -1,7 +1,8 @@
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Home from '@/components/Home'
-
+import Events from '@/components/Event'
+import Achievements from '@/components/Achievements'
 export const metadata = {
   title: 'Vidhyut - EV Day',
   description: 'EV Day Annual Summit',
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <Home/>
         {children}
+        <Achievements/>
       </body>
     </html>
   )
