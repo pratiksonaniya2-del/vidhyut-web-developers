@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Home from '@/components/Home'
 import Events from '@/components/Event'
 import Achievements from '@/components/Achievements'
+import Footer from '@/components/Footer'
 export const metadata = {
   title: 'Vidhyut - EV Day',
   description: 'EV Day Annual Summit',
@@ -15,10 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <Home/>
+        <Navbar/>
         {children}
-        <Achievements/>
+        
       </body>
     </html>
   )

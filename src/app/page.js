@@ -1,15 +1,13 @@
-<<<<<<< HEAD
-import Achievements from '@/components/Event'
-
-export default function Page() {
-=======
 import Achievements from '@/components/Achievements'
 import SponsorsPage from '@/components/SponsorShips'
 import Footer from '@/components/Footer'
-export default function Home() {
->>>>>>> f09515eb349302fb63d790cc8ab6fcf18bfa44e8
+import Events from '@/components/Event'
+import Home from '@/components/Home'
+export default function Page() {
   return (
     <main>
+      <Home/>
+      <Events/>
       <Achievements />
       <SponsorsPage />
       <Footer />
