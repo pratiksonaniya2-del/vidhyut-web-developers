@@ -6,7 +6,10 @@ import Achievements from '@/components/Achievements'
 export const metadata = {
   title: 'Vidhyut - EV Day',
   description: 'EV Day Annual Summit',
-}
+  icons:{
+    icon:"/icon.jpg"
+  },
+};
 
 export default function RootLayout({ children }) {
   return (

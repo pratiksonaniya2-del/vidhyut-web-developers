@@ -15,7 +15,7 @@ const achievements = [
     title: "Tech Community Impact",
     description:
       "Bringing together students, developers, innovators and technology enthusiasts to build a stronger EV ecosystem.",
-    image: "/images/community.jpg",
+    image: "/tech2.jpeg",
   },
   {
     title: "EV Innovation Recognition",
@@ -33,19 +33,21 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section className="achievements">
+    <section className="achievements" id="achievements">
       <div className="achievements-header">
-        <span>⚡ OUR ACHIEVEMENTS</span>
+        <span className="section-tag">
+          ⚡ ACHIEVEMENTS & IMPACT
+        </span>
 
         <h2>
-          Impact Beyond
-          <span> Competition</span>
+          Building the Future of
+          <span> Electric Mobility</span>
         </h2>
 
         <p>
-          VIDHYUT continues to inspire innovation, recognition,
-          collaboration and technological advancement in the
-          electric mobility ecosystem.
+          Beyond competitions, VIDHYUT creates a platform that drives
+          innovation, collaboration, entrepreneurship and technological
+          excellence across the EV ecosystem.
         </p>
       </div>
 
@@ -57,11 +59,15 @@ export default function Achievements() {
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.7,
+              duration: 0.8,
               delay: index * 0.15,
             }}
             viewport={{ once: true }}
           >
+            <div className="card-bg-number">
+              0{index + 1}
+            </div>
+
             <div className="image-wrapper">
               <Image
                 src={item.image}
@@ -71,15 +77,18 @@ export default function Achievements() {
               />
 
               <div className="image-overlay"></div>
-
-              <div className="card-number">
-                0{index + 1}
-              </div>
             </div>
 
             <div className="card-content">
+              <div className="card-top-line"></div>
+
               <h3>{item.title}</h3>
+
               <p>{item.description}</p>
+
+              <div className="card-footer">
+                <span>Explore Impact</span>
+              </div>
             </div>
           </motion.div>
         ))}

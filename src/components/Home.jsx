@@ -11,7 +11,7 @@ import {
 
 export default function Home() {
   return (
-    <section className="hero">
+    <section className="hero" id="home">
 
       {/* Background Overlay */}
       <div className="overlay"></div>

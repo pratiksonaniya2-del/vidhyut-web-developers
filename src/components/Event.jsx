@@ -117,7 +117,7 @@ export default function Events() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="achievements" className={styles.section}>
+    <section ref={sectionRef} id="events" className={styles.section}>
 
       {/* Background */}
       <div className={styles.bgGrid} />
@@ -187,20 +187,20 @@ export default function Events() {
           </div>
           <div className={styles.photos}>
             <div className={`${styles.photo} ${styles.photoWide}`}>
-              <img src="https://placehold.co/800x400/121212/339557?text=Evolve+Team" alt="Evolve team at Vidyut" />
+              <img src="/team.jpeg" alt="Evolve team at Vidyut" />
               <div className={styles.photoOverlay}>
                 <span>Evolve Team</span>
               </div>
             </div>
             <div className={styles.photoStack}>
               <div className={styles.photo}>
-                <img src="https://placehold.co/400x200/161617/339557?text=Tech+Track+2.0" alt="TechTrack 2.0 stage" />
+                <img src="/techtrack.jpeg" alt="TechTrack 2.0 stage" />
                 <div className={styles.photoOverlay}>
                   <span>Tech Track 2.0</span>
                 </div>
               </div>
               <div className={styles.photo}>
-                <img src="https://placehold.co/400x200/161617/339557?text=Industry+Talk" alt="Seminar session" />
+                <img src="/image2.JPG" alt="Seminar session" />
                 <div className={styles.photoOverlay}>
                   <span>Industry Talk</span>
                 </div>
