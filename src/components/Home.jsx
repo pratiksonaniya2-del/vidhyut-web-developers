@@ -1,127 +1,167 @@
 "use client";
 
 import "./Home.css";
-import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Zap,
-  BatteryCharging,
-  Trophy,
-} from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
-  return (
-    <section className="hero" id="home">
 
-      {/* Background Overlay */}
+  const { scrollY } = useScroll();
+
+  // Image Animations
+  const scale = useTransform(scrollY, [0, 700], [1, 1.18]);
+  const y = useTransform(scrollY, [0, 700], [0, -70]);
+  const opacity = useTransform(scrollY, [0, 700], [1, 0.85]);
+
+  // Ripple Effect
+  const createRipple = (e) => {
+    const button = e.currentTarget;
+
+    const circle = document.createElement("span");
+
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    const rect = button.getBoundingClientRect();
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+
+    circle.style.left = `${e.clientX - rect.left - radius}px`;
+
+    circle.style.top = `${e.clientY - rect.top - radius}px`;
+
+    circle.classList.add("ripple");
+
+    const ripple = button.getElementsByClassName("ripple")[0];
+
+    if (ripple) ripple.remove();
+
+    button.appendChild(circle);
+  };
+  const handleMouseMove = (e) => {
+    const x = (window.innerWidth / 2 - e.clientX) / 40;
+    const y = (window.innerHeight / 2 - e.clientY) / 40;
+
+    document.documentElement.style.setProperty("--mouse-x", `${x}px`);
+    document.documentElement.style.setProperty("--mouse-y", `${y}px`);
+};
+
+  return (
+    <section className="hero" id="home" onMouseMove={handleMouseMove}>
+      <div className="particles">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+    <div className="cursor-glow"></div>
+
+      {/* Overlay */}
       <div className="overlay"></div>
 
-      {/* Green Glow Effects */}
-      <div className="green-glow glow-1"></div>
-      <div className="green-glow glow-2"></div>
+      {/* Animated Grid */}
+      <div className="grid-overlay"></div>
+
+      {/* Ambient Glow */}
+      <div className="ambient-glow"></div>
 
       <div className="hero-container">
 
-        {/* Left Side */}
+        {/* LEFT */}
         <motion.div
           className="hero-left"
           initial={{ opacity: 0, x: -80 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className="event-tag">
-            ⚡ ACCELERATING INDIA'S ELECTRIC FUTURE
-          </div>
 
-          <h1 className="hero-title">
-            VIDHYUT
-          </h1>
+          <motion.div
+            className="event-tag"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: .2 }}
+          >
+            ACCELERATING INDIA'S ELECTRIC FUTURE
+          </motion.div>
 
-          <h2 className="hero-subtitle">
+          <motion.h1
+            className="hero-title"
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: .4 }}
+          >
+            VIDYUT
+          </motion.h1>
+
+          <motion.h2
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: .6 }}
+          >
             Driving The Next Generation Of Electric Mobility
-          </h2>
+          </motion.h2>
 
-          <p className="hero-description">
+          <motion.p
+            className="hero-description"
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: .8 }}
+          >
             EVOLVE Club's flagship event bringing together innovators,
-            engineers, entrepreneurs and future leaders to shape the
-            future of sustainable transportation and clean energy.
-          </p>
+            engineers, entrepreneurs and future leaders to shape the future
+            of sustainable transportation and clean energy.
+          </motion.p>
 
-          <div className="hero-buttons">
-
-            <button className="primary-btn">
+          <motion.div
+            className="hero-buttons"
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+          >
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 35px rgba(34,197,94,.45)"
+              }}
+              whileTap={{ scale: .96 }}
+              className="primary-btn"
+              onClick={createRipple}
+            >
               Register Now
               <ArrowRight size={18} />
-            </button>
+            </motion.button>
+          </motion.div>
 
-            <button className="secondary-btn">
-              Explore Event
-            </button>
-
-          </div>
-
-          <div className="stats">
-
-            <div className="stat">
-              <h3>500+</h3>
-              <span>Participants</span>
-            </div>
-
-            <div className="stat">
-              <h3>10+</h3>
-              <span>Industry Experts</span>
-            </div>
-
-            <div className="stat">
-              <h3>20+</h3>
-              <span>EV Projects</span>
-            </div>
-
-          </div>
         </motion.div>
 
-        {/* Right Side */}
-        <motion.div
-          className="hero-right"
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="feature-card">
+        {/* RIGHT */}
+        <div className="hero-right">
 
-            <div className="feature">
-              <Zap size={36} />
-              <div>
-                <h3>EV Design Challenge</h3>
-                <p>
-                  Build innovative solutions for the future
-                  of mobility.
-                </p>
-              </div>
-            </div>
+          <picture>
 
-            <div className="feature">
-              <BatteryCharging size={36} />
-              <div>
-                <h3>Expert Sessions</h3>
-                <p>
-                  Learn from industry leaders and EV pioneers.
-                </p>
-              </div>
-            </div>
+            {/* Mobile Image */}
+            <source
+              media="(max-width:768px)"
+              srcSet="/ev-bg5.jpeg"
+            />
 
-            <div className="feature">
-              <Trophy size={36} />
-              <div>
-                <h3>Future Mobility Showcase</h3>
-                <p>
-                  Experience cutting-edge electric technologies.
-                </p>
-              </div>
-            </div>
+            {/* Desktop Image */}
+            <motion.img
+              src="/ev-bg4.jpeg"
+              alt="Electric Vehicle"
+              className="vehicle-image"
+              style={{
+                scale,
+                y,
+                opacity
+              }}
+            />
 
-          </div>
-        </motion.div>
+          </picture>
+
+        </div>
 
       </div>
 

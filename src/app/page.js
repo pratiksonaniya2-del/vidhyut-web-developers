@@ -8,8 +8,9 @@ export default function Page() {
   return (
     <main>
       <Home />
-      <Achievements />
+      
       <Event />
+      <Achievements />
       <SponsorShips />
       <Footer />
     </main>

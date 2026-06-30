@@ -12,7 +12,7 @@ import {
 
 export default function Sponsorship() {
   return (
-    <section className="sponsor-section">
+    <section className="Sponsors">
 
       <div className="sponsor-header">
 
@@ -25,7 +25,7 @@ export default function Sponsorship() {
         </h2>
 
         <p>
-          VIDHYUT brings together innovators,
+          VIDYUT brings together innovators,
           startups, industry leaders and future
           engineers under one platform.
           Partner with us and shape the future
