@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
-
+ 
 const navLinks = [
   { label: "Home",         href: "#home" },
   { label: "Sponsors",     href: "#sponsors" },
@@ -10,53 +10,53 @@ const navLinks = [
   { label: "Team",         href: "#team" },
   { label: "Achievements", href: "#achievements" },
 ];
-
+ 
 export default function Navbar() {
-  const [scrolled,   setScrolled]   = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
   const [menuOpen,   setMenuOpen]   = useState(false);
-
+  const [scrolled,   setScrolled]   = useState(false);
+ 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
+ 
   useEffect(() => {
     const onResize = () => { if (window.innerWidth > 768) setMenuOpen(false); };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
-
+ 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
-
+ 
   const handleNavClick = (label) => {
     setActiveLink(label);
     setMenuOpen(false);
   };
-
+ 
   return (
     <>
-      <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-        <div className={styles.inner}>
-
+      <header className={`${styles.wrapper} ${scrolled ? styles.scrolled : ""}`}>
+        <nav className={styles.navbar}>
+ 
           {/* Logo */}
           <a href="#home" className={styles.logo} onClick={() => handleNavClick("Home")}>
             <Image
               src="https://evolve.nitb.in/Evolve_Logo.png"
               alt="Evolve Logo"
-              width={44}
-              height={44}
+              width={40}
+              height={40}
               className={styles.logoImg}
               unoptimized
             />
           </a>
-
-          {/* Desktop nav links */}
-          <nav className={styles.desktopNav}>
+ 
+          {/* Center pill */}
+          <div className={styles.linksPill}>
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -64,34 +64,36 @@ export default function Navbar() {
                 className={`${styles.navLink} ${activeLink === link.label ? styles.navLinkActive : ""}`}
                 onClick={() => handleNavClick(link.label)}
               >
-                {link.label}
-                <span className={styles.linkUnderline} />
+                <span className={styles.linkInner}>
+                  <span className={styles.linkFront}>{link.label}</span>
+                  <span className={styles.linkBack}>{link.label}</span>
+                </span>
               </a>
             ))}
-          </nav>
-
-          {/* CTA + Hamburger */}
-          <div className={styles.actions}>
+          </div>
+ 
+          {/* Right */}
+          <div className={styles.right}>
             <a href="#events" className={styles.ctaBtn} onClick={() => handleNavClick("Events")}>
-              Register Now
+              <span className={styles.linkInner}>
+                <span className={styles.linkFront}>Register Now</span>
+                <span className={styles.linkBack}>Register Now</span>
+              </span>
             </a>
-
+ 
             <button
               className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ""}`}
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
-              aria-expanded={menuOpen}
             >
-              <span />
-              <span />
-              <span />
+              <span /><span /><span />
             </button>
           </div>
-
-        </div>
+ 
+        </nav>
       </header>
-
-      {/* Mobile menu */}
+ 
+      {/* Mobile drawer */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
         <nav className={styles.mobileNav}>
           {navLinks.map((link, i) => (
@@ -102,7 +104,7 @@ export default function Navbar() {
               style={{ animationDelay: `${i * 60}ms` }}
               onClick={() => handleNavClick(link.label)}
             >
-              <span className={styles.mobileLinkNumber}>0{i + 1}</span>
+              <span className={styles.mobileLinkNum}>0{i + 1}</span>
               {link.label}
             </a>
           ))}
@@ -111,10 +113,8 @@ export default function Navbar() {
           </a>
         </nav>
       </div>
-
-      {menuOpen && (
-        <div className={styles.overlay} onClick={() => setMenuOpen(false)} />
-      )}
+ 
+      {menuOpen && <div className={styles.overlay} onClick={() => setMenuOpen(false)} />}
     </>
   );
 }
