@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
+  
 
   const { scrollY } = useScroll();
 
