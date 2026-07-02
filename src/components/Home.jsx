@@ -3,6 +3,15 @@
 import "./Home.css";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const Countdown = dynamic(
+  () => import("./Countdown"),
+  {
+    ssr: false,
+  }
+);
+
 
 export default function Home() {
   
@@ -116,26 +125,42 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            className="hero-buttons"
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-          >
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 35px rgba(34,197,94,.45)"
-              }}
-              whileTap={{ scale: .96 }}
-              className="primary-btn"
-              onClick={createRipple}
-            >
-              Register Now
-              <ArrowRight size={18} />
-            </motion.button>
-          </motion.div>
+  className="hero-actions"
+  initial={{ opacity: 0, y: 35 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1 }}
+>
+
+  <motion.div className="hero-buttons">
+
+    <motion.button
+      whileHover={{
+        scale: 1.05,
+        boxShadow: "0 0 35px rgba(34,197,94,.45)"
+      }}
+      whileTap={{ scale: .96 }}
+      className="primary-btn"
+      onClick={createRipple}
+    >
+      Register Now
+      <ArrowRight size={18} />
+    </motion.button>
+    <div className="hero-actions">
+
+  
+
+  <Countdown />
+
+</div>
+
+  </motion.div>
+
+  
+
+</motion.div>
 
         </motion.div>
+        
 
         {/* RIGHT */}
         <div className="hero-right">

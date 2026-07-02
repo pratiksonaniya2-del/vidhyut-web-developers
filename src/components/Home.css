@@ -210,22 +210,21 @@
 }
 
 .hero-container{
-
-    position:relative;
-
-    z-index:5;
-
     width:100%;
+    max-width:1400px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:45% 55%;
+
+    align-items:center;      /* Important */
 
     min-height:100vh;
 
-    display:grid;
+    padding:120px 0 60px 70px;  
 
-    grid-template-columns:45% 55%;
-
-    align-items:center;
-
-    padding-left:80px;
+    position:relative;
+    z-index:2;
 }
 
 .hero-left{
