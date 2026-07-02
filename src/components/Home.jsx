@@ -145,11 +145,12 @@ export default function Home() {
       Register Now
       <ArrowRight size={18} />
     </motion.button>
+    
     <div className="hero-actions">
 
   
 
-  <Countdown />
+  
 
 </div>
 
@@ -158,6 +159,7 @@ export default function Home() {
   
 
 </motion.div>
+<Countdown />
 
         </motion.div>
         

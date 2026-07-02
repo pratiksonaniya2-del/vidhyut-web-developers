@@ -662,3 +662,35 @@
 ::-webkit-scrollbar-thumb:hover{
     background:#16a34a;
 }
+/* Mobile Hero Layout */
+
+@media (max-width:768px){
+
+    .hero-buttons{
+        display:flex;
+        justify-content:center;
+        width:100%;
+    }
+
+    .countdown-dashboard{
+        width:100%;
+        max-width:100%;
+        margin:25px auto 35px;
+    }
+
+    .hero-left{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .hero-description{
+        max-width:100%;
+    }
+
+    .hero-right{
+        margin-top:20px;
+    }
+
+}
