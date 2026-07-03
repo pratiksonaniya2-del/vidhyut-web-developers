@@ -25,20 +25,7 @@
 
 .loader-glow{
 
-    position:absolute;
-
-    width:700px;
-    height:700px;
-
-    border-radius:50%;
-
-    background:#22c55e;
-
-    filter:blur(220px);
-
-    opacity:.12;
-
-    animation:glowFloat 6s ease-in-out infinite;
+    display: none;
 }
 
 @keyframes glowFloat{
@@ -313,9 +300,9 @@
 
 .loader-subtitle{
 
-    font-size:.75rem;
+    font-size:.65rem;
 
-    letter-spacing:2px;
+    letter-spacing:1.5px;
 
     text-align:center;
 

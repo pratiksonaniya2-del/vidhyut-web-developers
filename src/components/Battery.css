@@ -23,9 +23,9 @@
 
     background:#22c55e;
 
-    filter:blur(120px);
+    filter:blur(80px);
 
-    opacity:.15;
+    opacity:.6;
 
     animation:breathe 2.5s ease-in-out infinite;
 
