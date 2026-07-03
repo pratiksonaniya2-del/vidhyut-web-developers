@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Loader from "@/components/Loader";
 import Home from "@/components/Home";
@@ -11,24 +11,33 @@ import Footer from "@/components/Footer";
 
 export default function Page() {
 
+  const [loading, setLoading] = useState(true);
+
+
 
   return (
+
     <>
-      
-        <main>
+      {loading && (
+        <Loader
+          onComplete={() => setLoading(false)}
+        />
+      )}
 
-          <Home />
-
-          <Event />
-
-          <Achievements />
-
-          <SponsorShips />
-
-          <Footer />
-
-        </main>
-      
+      <main
+        style={{
+          opacity: loading ? 0 : 1,
+          transition: "opacity .8s ease"
+        }}
+      >
+        <Home />
+        <Event />
+        <Achievements />
+        <SponsorShips />
+        <Footer />
+      </main>
     </>
+
   );
+
 }

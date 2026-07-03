@@ -1,0 +1,358 @@
+.battery-wrapper{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+
+    position:relative;
+}
+
+/* ===========================
+   Ambient Glow
+=========================== */
+
+.battery-glow{
+
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    filter:blur(120px);
+
+    opacity:.15;
+
+    animation:breathe 2.5s ease-in-out infinite;
+
+    z-index:0;
+}
+
+@keyframes breathe{
+
+    0%,100%{
+
+        transform:scale(.9);
+        opacity:.12;
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+        opacity:.2;
+
+    }
+
+}
+
+/* ===========================
+      Battery Body
+=========================== */
+
+.battery{
+
+    width:340px;
+    height:82px;
+
+    position:relative;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:3px solid rgba(255,255,255,.15);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.02)
+        );
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        inset 0 0 20px rgba(255,255,255,.03),
+
+        0 0 40px rgba(34,197,94,.15);
+
+    z-index:2;
+}
+
+/* ===========================
+      Battery Head
+=========================== */
+
+.battery-cap{
+
+    position:absolute;
+
+    right:-18px;
+    top:23px;
+
+    width:16px;
+    height:36px;
+
+    border-radius:0 8px 8px 0;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #666,
+            #999
+        );
+
+    box-shadow:
+
+        0 0 15px rgba(255,255,255,.15);
+}
+
+/* ===========================
+      Charging Fill
+=========================== */
+
+.battery-fill{
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            #16a34a,
+
+            #22c55e,
+
+            #4ade80,
+
+            #86efac
+        );
+
+    box-shadow:
+
+        0 0 30px #22c55e,
+
+        inset 0 0 20px rgba(255,255,255,.2);
+
+    overflow:hidden;
+}
+
+/* ===========================
+      Moving Shine
+=========================== */
+
+.battery-shine{
+
+    position:absolute;
+
+    top:0;
+    left:-80px;
+
+    width:80px;
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    background:
+
+        linear-gradient(
+
+            to right,
+
+            transparent,
+
+            rgba(255,255,255,.65),
+
+            transparent
+        );
+
+    filter:blur(1px);
+}
+
+/* ===========================
+      Percentage
+=========================== */
+
+.battery-percentage{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-shadow:
+
+        0 0 15px rgba(255,255,255,.35);
+
+    z-index:5;
+
+    user-select:none;
+}
+
+/* ===========================
+      Status
+=========================== */
+
+.battery-status{
+
+    color:#22c55e;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    text-align:center;
+}
+
+/* ===========================
+      Small Energy Particles
+=========================== */
+
+.battery-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+
+    left:15%;
+
+    animation:float1 3s infinite;
+}
+
+.battery-wrapper::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    background:#4ade80;
+
+    border-radius:50%;
+
+    right:15%;
+
+    animation:float2 4s infinite;
+}
+
+@keyframes float1{
+
+    0%{
+
+        transform:translateY(20px);
+        opacity:0;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-70px);
+        opacity:0;
+
+    }
+
+}
+
+@keyframes float2{
+
+    0%{
+
+        transform:translateY(25px);
+        opacity:0;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-80px);
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================
+      Mobile
+=========================== */
+
+@media(max-width:768px){
+
+.battery{
+
+    width:260px;
+    height:68px;
+
+}
+
+.battery-cap{
+
+    top:18px;
+    height:30px;
+
+}
+
+.battery-percentage{
+
+    font-size:1.1rem;
+
+}
+
+.battery-status{
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+}
+
+}

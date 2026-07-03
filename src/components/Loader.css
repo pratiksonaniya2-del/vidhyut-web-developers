@@ -1,0 +1,358 @@
+/* =========================================
+   FULL SCREEN LOADER
+========================================= */
+
+.loader{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#050505;
+
+    overflow:hidden;
+
+    z-index:999999;
+}
+
+
+/* =========================================
+   AMBIENT GLOW
+========================================= */
+
+.loader-glow{
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    filter:blur(220px);
+
+    opacity:.12;
+
+    animation:glowFloat 6s ease-in-out infinite;
+}
+
+@keyframes glowFloat{
+
+    0%,100%{
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-25px)
+        scale(1.08);
+
+    }
+
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.loader-grid{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    linear-gradient(
+        rgba(255,255,255,.03) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.03) 1px,
+        transparent 1px
+    );
+
+    background-size:45px 45px;
+
+    animation:gridMove 10s linear infinite;
+
+    opacity:.4;
+}
+
+@keyframes gridMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(45px);
+
+    }
+
+}
+
+
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
+
+.loader-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+}
+
+.loader-particles span{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    box-shadow:
+
+    0 0 12px #22c55e,
+    0 0 24px #22c55e;
+
+    animation:particleFloat linear infinite;
+}
+
+@keyframes particleFloat{
+
+    from{
+
+        transform:
+        translateY(0)
+        scale(.4);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-120vh)
+        scale(1);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.loader-content{
+
+    position:relative;
+
+    z-index:10;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.loader-title{
+
+    color:white;
+
+    font-size:5rem;
+
+    font-weight:900;
+
+    letter-spacing:12px;
+
+    margin-bottom:20px;
+
+    text-shadow:
+
+    0 0 25px rgba(34,197,94,.2);
+
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.loader-subtitle{
+
+    color:#8f8f8f;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:60px;
+
+    font-size:.95rem;
+
+}
+
+
+/* =========================================
+   LOADER FLASH
+========================================= */
+
+.loader::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(34,197,94,.08),
+
+        transparent 70%
+
+    );
+
+    animation:pulseFlash 3s ease-in-out infinite;
+}
+
+@keyframes pulseFlash{
+
+    0%,100%{
+
+        opacity:.25;
+
+    }
+
+    50%{
+
+        opacity:.7;
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:992px){
+
+.loader-title{
+
+    font-size:4rem;
+
+    letter-spacing:8px;
+
+}
+
+.loader-subtitle{
+
+    font-size:.85rem;
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.loader-title{
+
+    font-size:2.8rem;
+
+    letter-spacing:6px;
+
+}
+
+.loader-subtitle{
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.loader-glow{
+
+    width:450px;
+    height:450px;
+
+}
+
+.loader-grid{
+
+    background-size:35px 35px;
+
+}
+
+}
+
+
+@media(max-width:480px){
+
+.loader-title{
+
+    font-size:2.2rem;
+
+}
+
+.loader-subtitle{
+
+    width:85%;
+
+    line-height:1.6;
+
+}
+
+}
