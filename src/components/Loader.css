@@ -122,10 +122,8 @@
 
     background:#22c55e;
 
-    box-shadow:
-
-    0 0 12px #22c55e,
-    0 0 24px #22c55e;
+    box-shadow:none;
+    opacity: .7;
 
     animation:particleFloat linear infinite;
 }
@@ -227,25 +225,7 @@
 
 .loader::after{
 
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    radial-gradient(
-
-        circle,
-
-        rgba(34,197,94,.08),
-
-        transparent 70%
-
-    );
-
-    animation:pulseFlash 3s ease-in-out infinite;
+    display: none;
 }
 
 @keyframes pulseFlash{
