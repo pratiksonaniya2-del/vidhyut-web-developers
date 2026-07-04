@@ -177,10 +177,7 @@ export default function Events() {
 
         {/* Photo strip */}
         <div className={`${styles.photoStrip} ${visible ? styles.visible : ""}`}>
-          <div className={styles.photoLabel}>
-            <span className={styles.eyebrowDot} />
-            <span>Moments from Vidyut</span>
-          </div>
+          
           <div className={styles.photos}>
             <div className={`${styles.photo} ${styles.photoWide}`}>
               <img src="/team.jpeg" alt="Evolve team at Vidyut" />
