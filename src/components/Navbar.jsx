@@ -5,10 +5,10 @@ import styles from "./Navbar.module.css";
  
 const navLinks = [
   { label: "Home",         href: "#home" },
-  { label: "Sponsors",     href: "#sponsors" },
-  { label: "Events",       href: "#events" },
-  { label: "Team",         href: "#team" },
-  { label: "Achievements", href: "#achievements" },
+  { label: "Events",     href: "#events" },
+  { label: "Achievements",       href: "#achievements" },
+  { label: "Sponsors",         href: "#Sponsors" },
+  { label: "Team", href: "#teams" },
 ];
  
 export default function Navbar() {
@@ -16,17 +16,53 @@ export default function Navbar() {
   const [menuOpen,   setMenuOpen]   = useState(false);
   const [scrolled,   setScrolled]   = useState(false);
  
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+ useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+
+          const active = navLinks.find(
+            (link) => link.href === `#${id}`
+          );
+
+          if (active) {
+            setActiveLink(active.label);
+          }
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "-35% 0px -55% 0px",
+      threshold: 0,
+    }
+  );
+
+  navLinks.forEach((link) => {
+    const section = document.querySelector(link.href);
+
+    if (section) observer.observe(section);
+  });
+
+  return () => observer.disconnect();
+}, []);
  
   useEffect(() => {
     const onResize = () => { if (window.innerWidth > 768) setMenuOpen(false); };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+  useEffect(() => {
+  const onScroll = () => {
+    setScrolled(window.scrollY > 20);
+  };
+
+  window.addEventListener("scroll", onScroll);
+
+  return () => window.removeEventListener("scroll", onScroll);
+}, []);
  
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -34,9 +70,12 @@ export default function Navbar() {
   }, [menuOpen]);
  
   const handleNavClick = (label) => {
-    setActiveLink(label);
-    setMenuOpen(false);
-  };
+
+  setMenuOpen(false);
+
+  setActiveLink(label);
+
+};
  
   return (
     <>

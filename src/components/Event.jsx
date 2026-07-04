@@ -127,16 +127,13 @@ export default function Events() {
 
         {/* Header */}
         <div className={`${styles.header} ${visible ? styles.visible : ""}`}>
-          <span className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
-            What We've Built
-          </span>
+          
           <h2 className={styles.heading}>
             Milestones That<br />
             <em className={styles.headingAccent}>Define Vidyut</em>
           </h2>
           <p className={styles.subheading}>
-            From packed seminar halls to live EV showcases — every edition of Vidyut
+            From packed seminar halls to live EV showcases, every edition of Vidyut
             has pushed the boundaries of what a student-led EV summit can achieve.
           </p>
         </div>
@@ -151,7 +148,6 @@ export default function Events() {
         {/* Divider */}
         <div className={`${styles.divider} ${visible ? styles.visible : ""}`}>
           <span className={styles.dividerLine} />
-          <span className={styles.dividerText}>Our Events</span>
           <span className={styles.dividerLine} />
         </div>
 

@@ -132,11 +132,11 @@
 }
  
 /* Hover: front flips up, back flips in */
-.navLink:hover .linkFront {
+.navLink:not(.navLinkActive):hover .linkFront {
   transform: translateY(-100%);
 }
  
-.navLink:hover .linkBack {
+.navLink:not(.navLinkActive):hover .linkBack {
   transform: translateY(0);
 }
  
