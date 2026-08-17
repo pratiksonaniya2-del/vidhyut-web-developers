@@ -92,18 +92,16 @@ export default function SponsorShips() {
       <div className="sp-container">
         {/* HERO */}
         <div className="sp-header">
-          <span className="sp-tag">SPONSORSHIP</span>
 
-          <h2>
-            Powering India's EV <span>Future</span>
-          </h2>
+  <h2>
+    Powering India's EV&nbsp;<span>Future</span>
+  </h2>
 
-          <p>
-            Partner with VIDHYUT and connect your brand with innovators,
-            startups, researchers and the country's leading electric mobility
-            community.
-          </p>
-        </div>
+  <p>
+    Partner with VIDHYUT and connect your brand with innovators, startups,
+    researchers and the country's leading electric mobility community.
+  </p>
+</div>
 
         {/* BENEFITS */}
         <div className="sp-benefits">
@@ -228,7 +226,6 @@ export default function SponsorShips() {
         {/* CTA */}
         <div className="sp-cta">
           <div className="sp-cta-content">
-            <span className="sp-tag">PARTNERSHIP OPPORTUNITY</span>
 
             <h2>Ready to Power VIDHYUT 2026?</h2>
 
@@ -285,9 +282,9 @@ export default function SponsorShips() {
                 <option value="" disabled>
                   Sponsorship Tier
                 </option>
-                <option>Silver Partner</option>
-                <option>Gold Partner</option>
-                <option>Platinum Partner</option>
+                <option>Media Partner</option>
+                <option>Industry Partner</option>
+                <option>Plattform Partner</option>
               </select>
 
               <textarea
