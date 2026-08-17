@@ -1,125 +1,308 @@
-'use client';
+"use client";
 
-import './sponsors.css';
+import { useState } from "react";
+import Image from "next/image";
+import "./sponsors.css";
 
 import {
-  FaBullhorn,
+  FaArrowRight,
+  FaTimes,
+  FaGlobe,
   FaUsers,
-  FaIndustry,
-  FaLightbulb,
-  FaArrowRight
-} from 'react-icons/fa';
+  FaBolt,
+  FaHandshake,
+  FaBullhorn,
+  FaRocket,
+  FaBuilding,
+  FaLandmark,
+} from "react-icons/fa";
 
-export default function Sponsorship() {
+/* ---------------- BENEFITS ---------------- */
+
+const benefits = [
+  {
+    icon: <FaGlobe />,
+    title: "National Visibility",
+    desc: "Showcase your brand before India's brightest engineering talent.",
+  },
+  {
+    icon: <FaUsers />,
+    title: "Talent Recruitment",
+    desc: "Connect with students for internships and hiring opportunities.",
+  },
+  {
+    icon: <FaBolt />,
+    title: "Product Showcase",
+    desc: "Display EV products, charging tech and mobility innovations.",
+  },
+  {
+    icon: <FaHandshake />,
+    title: "Industry Networking",
+    desc: "Meet startups, founders and researchers under one platform.",
+  },
+  {
+    icon: <FaBullhorn />,
+    title: "Media Reach",
+    desc: "Gain visibility through social campaigns and digital branding.",
+  },
+  {
+    icon: <FaRocket />,
+    title: "Innovation Ecosystem",
+    desc: "Support India's sustainable mobility movement through VIDHYUT.",
+  },
+];
+
+/* ---------------- SPONSORS ---------------- */
+
+const sponsors = [
+  { name: "Ola", logo: "/sponsors/ola.png" },
+  { name: "BGauss", logo: "/sponsors/bgauss.png" },
+  { name: "Mercedes", logo: "/sponsors/mercedes.png" },
+  { name: "BYD", logo: "/sponsors/byd.png" },
+  { name: "Tata", logo: "/sponsors/tata.png" },
+  { name: "Mahindra", logo: "/sponsors/mahindra.png" },
+  { name: "Hyundai", logo: "/sponsors/hyundai.png" },
+  { name: "BMW", logo: "/sponsors/bmw.png" },
+  { name: "KV", logo: "/sponsors/kv.png" },
+];
+
+/* ---------------- MEDIA ---------------- */
+
+const mediaPartners = [
+  { name: "CW Behind The Wheel", logo: "/media/cw.png" },
+  { name: "City of Lakes Bhopal", logo: "/media/cityoflakes.png" },
+  { name: "MPO4", logo: "/media/mpo4.png" },
+  { name: "Humans of EV", logo: "/media/humansofev.png" },
+  { name: "BKB Bhopali", logo: "/media/bkb.png" },
+  { name: "Harmal Wala Blogger", logo: "/media/harmal.png" },
+  { name: "RP Vlogs", logo: "/media/rpvlogs.png" },
+  { name: "Dainik Bhaskar", logo: "/media/db.png" },
+];
+
+export default function SponsorShips() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <section className="Sponsors">
+    <section className="sp-section" id="sponsors">
+      {/* Background */}
+      <div className="sp-glow sp-left" />
+      <div className="sp-glow sp-right" />
+      <div className="sp-grid" />
 
-      <div className="sponsor-header">
+      <div className="sp-container">
+        {/* HERO */}
+        <div className="sp-header">
+          <span className="sp-tag">SPONSORSHIP</span>
 
-        <span className="section-tag">
-          PARTNERSHIP OPPORTUNITIES
-        </span>
-
-        <h2>
-          Powering India's <span>EV Revolution</span>
-        </h2>
-
-        <p>
-          VIDYUT brings together innovators,
-          startups, industry leaders and future
-          engineers under one platform.
-          Partner with us and shape the future
-          of mobility.
-        </p>
-
-      </div>
-
-      <div className="sponsor-stats">
-
-        <div className="stat-card">
-          <h3>500+</h3>
-          <p>Expected Participants</p>
-        </div>
-
-        <div className="stat-card">
-          <h3>25+</h3>
-          <p>Electric Vehicles</p>
-        </div>
-
-        <div className="stat-card">
-          <h3>10+</h3>
-          <p>Strategic Partners</p>
-        </div>
-
-        <div className="stat-card">
-          <h3>18K+</h3>
-          <p>Prize Pool</p>
-        </div>
-
-      </div>
-
-      <div className="benefits-grid">
-
-        <div className="benefit-card large">
-          <FaBullhorn />
-
-          <h3>Brand Visibility</h3>
+          <h2>
+            Powering India's EV <span>Future</span>
+          </h2>
 
           <p>
-            Showcase your company to students,
-            professionals and EV enthusiasts.
+            Partner with VIDHYUT and connect your brand with innovators,
+            startups, researchers and the country's leading electric mobility
+            community.
           </p>
         </div>
 
-        <div className="benefit-card">
-          <FaUsers />
+        {/* BENEFITS */}
+        <div className="sp-benefits">
+          {benefits.map((item, i) => (
+            <div className="sp-card" key={i}>
+              <div className="sp-icon">{item.icon}</div>
 
-          <h3>Talent Access</h3>
+              <h3>{item.title}</h3>
 
-          <p>
-            Meet future engineers and innovators.
-          </p>
+              <p>{item.desc}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="benefit-card">
-          <FaIndustry />
+        {/* COLLABORATIONS */}
+        <div className="sp-collab-wrapper">
+          <div className="sp-title">
+            <h2>Official Collaborations</h2>
+          </div>
 
-          <h3>Industry Presence</h3>
+          <div className="sp-collab-grid">
+            {/* Industry */}
+            <div className="sp-collab-card large">
+              <div className="sp-collab-icon">
+                <FaBuilding />
+              </div>
 
-          <p>
-            Strengthen your EV ecosystem footprint.
-          </p>
+              <span>INDUSTRY COLLABORATOR</span>
+
+              <div className="sp-brand-logo">
+                <Image
+                  src="/partners/vaayu.png"
+                  alt="Vaayu"
+                  width={170}
+                  height={60}
+                />
+              </div>
+
+              <p>Official Industry Collaborator of VIDHYUT 2026.</p>
+            </div>
+
+            {/* Government */}
+            <div className="sp-collab-card">
+              <div className="sp-collab-icon">
+                <FaLandmark />
+              </div>
+
+              <span>GOVERNMENT COLLABORATION</span>
+
+              <div className="sp-brand-logo">
+                <Image
+                  src="/partners/mpgov.png"
+                  alt="MP Government"
+                  width={150}
+                  height={55}
+                />
+              </div>
+            </div>
+
+            {/* Platform */}
+            <div className="sp-collab-card">
+              <div className="sp-collab-icon">
+                <FaRocket />
+              </div>
+
+              <span>PLATFORM PARTNER</span>
+
+              <div className="sp-brand-logo">
+                <Image
+                  src="/partners/unstop.png"
+                  alt="Unstop"
+                  width={140}
+                  height={55}
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="benefit-card large">
-          <FaLightbulb />
-
-          <h3>Innovation Network</h3>
-
-          <p>
-            Connect with startups, researchers,
-            creators and industry experts.
-          </p>
+        {/* SPONSORS */}
+        <div className="sp-title">
+          <h2>Our Sponsors</h2>
         </div>
 
+        <div className="sp-marquee">
+          <div className="sp-track">
+            {[...sponsors, ...sponsors].map((item, i) => (
+              <div className="sp-logo-card" key={i}>
+                <Image
+                  src={item.logo}
+                  alt={item.name}
+                  width={140}
+                  height={60}
+                  className="sp-logo-img"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* MEDIA */}
+        <div className="sp-title">
+          <h2>Media Partners</h2>
+        </div>
+
+        <div className="sp-media-grid">
+          {mediaPartners.map((item, i) => (
+            <div className="sp-media-card" key={i}>
+              <Image
+                src={item.logo}
+                alt={item.name}
+                width={130}
+                height={55}
+                className="sp-media-logo"
+              />
+
+              <p>{item.name}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="sp-cta">
+          <div className="sp-cta-content">
+            <span className="sp-tag">PARTNERSHIP OPPORTUNITY</span>
+
+            <h2>Ready to Power VIDHYUT 2026?</h2>
+
+            <p>
+              Become an official sponsor and position your brand at the forefront
+              of India's electric mobility revolution.
+            </p>
+
+            <button className="sp-btn" onClick={() => setOpen(true)}>
+              Become A Sponsor
+              <FaArrowRight />
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="cta-card">
+      {/* MODAL */}
+      {open && (
+        <div className="sp-modal-overlay">
+          <div className="sp-modal">
+            <button className="sp-close" onClick={() => setOpen(false)}>
+              <FaTimes />
+            </button>
 
-        <h2>Become A Sponsor</h2>
+            <div className="sp-modal-header">
+              <span className="sp-tag">SPONSORSHIP FORM</span>
 
-        <p>
-          Join India's growing electric mobility
-          ecosystem and empower the next generation.
-        </p>
+              <h2>Become A Sponsor</h2>
 
-        <button>
-          Partner With VIDHYUT
-          <FaArrowRight />
-        </button>
+              <p>
+                Fill in your company details and our partnership team will
+                contact you within 24–48 hours.
+              </p>
+            </div>
 
-      </div>
+            <form className="sp-form">
+              <div className="sp-row">
+                <input placeholder="Company Name" required />
+                <input placeholder="Contact Person" required />
+              </div>
 
+              <div className="sp-row">
+                <input
+                  type="email"
+                  placeholder="Business Email"
+                  required
+                />
+                <input placeholder="Phone Number" required />
+              </div>
+
+              <input placeholder="Company Website" />
+
+              <select required defaultValue="">
+                <option value="" disabled>
+                  Sponsorship Tier
+                </option>
+                <option>Silver Partner</option>
+                <option>Gold Partner</option>
+                <option>Platinum Partner</option>
+              </select>
+
+              <textarea
+                rows={5}
+                placeholder="Tell us about your company..."
+              />
+
+              <button type="submit" className="sp-submit">
+                Submit Inquiry
+                <FaArrowRight />
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
