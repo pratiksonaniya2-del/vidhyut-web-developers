@@ -69,10 +69,10 @@ const sponsors = [
 /* ---------------- MEDIA ---------------- */
 
 const mediaPartners = [
-  { name: "CW Behind The Wheel", logo: "/media/cw.png" },
+  { name: "CW Behind The Wheel", logo: "/public/cw-initial-logo-linked-circle-monogram-vector-29217152.avif" },
   { name: "City of Lakes Bhopal", logo: "/media/cityoflakes.png" },
   { name: "MPO4", logo: "/media/mpo4.png" },
-  { name: "Humans of EV", logo: "/media/humans_of_ev_logo.jpg" },
+  { name: "Humans of EV", logo: "/public/humans_of_ev_logo.jpg" },
   { name: "BKB Bhopali", logo: "/media/bkb.png" },
   { name: "Harmal Wala Blogger", logo: "/media/harmal.png" },
   { name: "RP Vlogs", logo: "/media/rpvlogs.png" },
