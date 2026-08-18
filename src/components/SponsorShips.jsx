@@ -14,41 +14,41 @@ import {
   FaBullhorn,
   FaRocket,
   FaBuilding,
-  FaLandmark,
+  FaLandmark,FaStore,FaLinkedin,FaImage,FaHotel
 } from "react-icons/fa";
 
 /* ---------------- BENEFITS ---------------- */
 
 const benefits = [
   {
-    icon: <FaGlobe />,
-    title: "National Visibility",
-    desc: "Showcase your brand before India's brightest engineering talent.",
-  },
-  {
-    icon: <FaUsers />,
-    title: "Talent Recruitment",
-    desc: "Connect with students for internships and hiring opportunities.",
-  },
-  {
-    icon: <FaBolt />,
-    title: "Product Showcase",
-    desc: "Display EV products, charging tech and mobility innovations.",
-  },
-  {
-    icon: <FaHandshake />,
-    title: "Industry Networking",
-    desc: "Meet startups, founders and researchers under one platform.",
+    icon: <FaStore />,
+    title: "Dedicated EV Booth",
+    desc: "Showcase your electric vehicles, charging solutions and products through an exclusive exhibition booth during VIDHYUT Expo.",
   },
   {
     icon: <FaBullhorn />,
-    title: "Media Reach",
-    desc: "Gain visibility through social campaigns and digital branding.",
+    title: "10+ Media House Coverage",
+    desc: "Gain extensive brand visibility through Dainik Bhaskar, Humans of EV, MPO4, RP Vlogs and our official media partners.",
   },
   {
-    icon: <FaRocket />,
-    title: "Innovation Ecosystem",
-    desc: "Support India's sustainable mobility movement through VIDHYUT.",
+    icon: <FaLandmark />,
+    title: "Ministry Recognition",
+    desc: "Receive recognition under an event supported by the Ministry of Power & Renewable Energy and government collaboration.",
+  },
+  {
+    icon: <FaLinkedin />,
+    title: "Official Partner Spotlight",
+    desc: "Your company will be featured across LinkedIn, Instagram and all official promotional campaigns as an official partner.",
+  },
+  {
+    icon: <FaImage />,
+    title: "Branding Across Promotions",
+    desc: "Logo placement on posters, brochures, standees, promotional creatives, website and event merchandise.",
+  },
+  {
+    icon: <FaHotel />,
+    title: "Hospitality & Guest Access",
+    desc: "Premium hospitality, networking opportunities and direct interaction with industry experts, bureaucrats and decision makers.",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function SponsorShips() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="sp-section" id="sponsors">
+    <section className="Sponsors" id="Sponsors">
       {/* Background */}
       <div className="sp-glow sp-left" />
       <div className="sp-glow sp-right" />
