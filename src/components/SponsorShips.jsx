@@ -103,7 +103,7 @@ export default function SponsorShips() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="Sponsors" id="Sponsors">
+    <section className="sp-section" id="sponsors">
       {/* Background */}
       <div className="sp-glow sp-left" />
       <div className="sp-glow sp-right" />
