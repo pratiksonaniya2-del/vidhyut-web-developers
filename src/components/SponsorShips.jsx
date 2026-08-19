@@ -16,9 +16,6 @@ import {
   FaBuilding,
   FaRocket,
 } from "react-icons/fa";
-
-/* ---------------- BENEFITS ---------------- */
-
 const benefits = [
   {
     icon: <FaStore />,
