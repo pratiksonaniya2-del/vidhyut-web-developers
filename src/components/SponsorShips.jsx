@@ -75,15 +75,15 @@ const collaborations = [
 /* ---------------- SPONSORS ---------------- */
 
 const sponsors = [
-  { name: "Ola", logo: "/sponsors/ola.png" },
-  { name: "BGauss", logo: "/sponsors/bgauss.png" },
-  { name: "Mercedes", logo: "/sponsors/mercedes.png" },
-  { name: "BYD", logo: "/sponsors/byd.png" },
-  { name: "Tata", logo: "/sponsors/tata.png" },
-  { name: "Mahindra", logo: "/sponsors/mahindra.png" },
-  { name: "Hyundai", logo: "/sponsors/hyundai.png" },
-  { name: "BMW", logo: "/sponsors/bmw.png" },
-  { name: "KV", logo: "/sponsors/kv.png" },
+  { name: "Ola", logo: "/ola.png" },
+  { name: "BGauss", logo: "/bgauss.png" },
+  { name: "Mercedes", logo: "/mercedes.png" },
+  { name: "BYD", logo: "/byd.png" },
+  { name: "Tata", logo: "/tata.png" },
+  { name: "Mahindra", logo: "/mahindra.png" },
+  { name: "Hyundai", logo: "/hyundai.png" },
+  { name: "BMW", logo: "/bmw.png" },
+  { name: "KV", logo: "/kv.png" },
 ];
 
 /* ---------------- MEDIA PARTNERS ---------------- */
@@ -91,12 +91,12 @@ const sponsors = [
 const mediaPartners = [
   { name: "CW Behind The Wheel", logo: "/media/cw.png" },
   { name: "City of Lakes Bhopal", logo: "/media/cityoflakes.png" },
-  { name: "MPO4", logo: "/media/mpo4.png" },
-  { name: "Humans of EV", logo: "/media/humansofev.png" },
+  { name: "MPO4", logo: "/mp4.png" },
+  { name: "Humans of EV", logo: "/humansev.jpg" },
   { name: "BKB Bhopali", logo: "/media/bkb.png" },
   { name: "Harmal Wala Blogger", logo: "/media/harmal.png" },
-  { name: "RP Vlogs", logo: "/media/rpvlogs.png" },
-  { name: "Dainik Bhaskar", logo: "/media/db.png" },
+  { name: "RP Vlogs", logo: "/rpvlogs.png" },
+  { name: "Dainik Bhaskar", logo: "/dainik.png" },
 ];
 
 export default function SponsorShips() {
@@ -178,25 +178,27 @@ export default function SponsorShips() {
 
         {/* ================= SPONSORS ================= */}
 
-        <div className="sp-title">
-          <h2>Our Sponsors</h2>
-        </div>
+        {/* ---------- SPONSORS ---------- */}
 
-        <div className="sp-marquee">
-          <div className="sp-track">
-            {[...sponsors, ...sponsors].map((item, i) => (
-              <div className="sp-logo-card" key={i}>
-                <Image
-                  src={item.logo}
-                  alt={item.name}
-                  width={140}
-                  height={60}
-                  className="sp-logo-img"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+<div className="sp-title">
+  <h2>Our Sponsors</h2>
+</div>
+
+<div className="logo-marquee">
+  <div className="logo-track">
+    {[...sponsors, ...sponsors].map((item, i) => (
+      <div className="logo-item" key={i}>
+        <Image
+          src={item.logo}
+          alt={item.name}
+          width={170}
+          height={70}
+          className="brand-logo"
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* ================= MEDIA PARTNERS ================= */}
 
@@ -205,20 +207,17 @@ export default function SponsorShips() {
         </div>
 
         <div className="sp-media-grid">
-          {mediaPartners.map((item, i) => (
-            <div className="sp-media-card" key={i}>
-              <Image
-                src={item.logo}
-                alt={item.name}
-                width={130}
-                height={55}
-                className="sp-media-logo"
-              />
-
-              <p>{item.name}</p>
-            </div>
-          ))}
-        </div>
+  {mediaPartners.map((item, i) => (
+    <Image
+      key={i}
+      src={item.logo}
+      alt={item.name}
+      width={120}
+      height={120}
+      className="sp-media-logo"
+    />
+  ))}
+</div>
 
         {/* ================= CTA ================= */}
 
