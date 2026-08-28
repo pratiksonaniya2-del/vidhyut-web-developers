@@ -1217,3 +1217,437 @@
         height: 88px;
     }
 }
+/* =========================================================
+   SUCCESS MODAL
+========================================================= */
+
+.sp-success-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    animation: spSuccessFadeIn 0.3s ease;
+}
+
+
+.sp-success-modal {
+    width: min(500px, 100%);
+
+    padding: 45px 38px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #121412,
+            #0b0d0b
+        );
+
+    border: 1px solid rgba(159, 232, 112, 0.2);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        0 0 60px rgba(159, 232, 112, 0.06);
+
+    animation: spSuccessScale 0.4s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.sp-success-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(159, 232, 112, 0.1);
+
+    border: 1px solid rgba(159, 232, 112, 0.3);
+
+    color: #9FE870;
+
+    font-size: 38px;
+    font-weight: 700;
+
+    box-shadow:
+        0 0 35px rgba(159, 232, 112, 0.12);
+}
+
+
+.sp-success-modal h2 {
+    margin: 0 0 14px;
+
+    color: #fff;
+
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+
+.sp-success-modal p {
+    margin: 0 auto 12px;
+
+    max-width: 420px;
+
+    color: #a1a1aa;
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+.sp-success-btn {
+    margin-top: 22px;
+
+    padding: 14px 32px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: #9FE870;
+
+    color: #071107;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.sp-success-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(159, 232, 112, 0.2);
+}
+
+
+.sp-error {
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+    background: rgba(239, 68, 68, 0.08);
+
+    border: 1px solid rgba(239, 68, 68, 0.2);
+
+    color: #f87171;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+}
+
+
+.sp-submit:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+}
+
+
+@keyframes spSuccessFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes spSuccessScale {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .sp-success-modal {
+        padding: 38px 24px;
+    }
+
+    .sp-success-modal h2 {
+        font-size: 1.7rem;
+    }
+
+    .sp-success-icon {
+        width: 64px;
+        height: 64px;
+
+        font-size: 32px;
+    }
+}
+/* =====================================================
+   FORM ERROR
+===================================================== */
+
+.sp-form-error{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:14px 16px;
+
+    margin-bottom:20px;
+
+    border-radius:14px;
+
+    background:rgba(239,68,68,.08);
+
+    border:1px solid rgba(239,68,68,.2);
+
+    color:#f87171;
+
+    font-size:.9rem;
+
+    line-height:1.5;
+}
+
+.sp-form-error svg{
+    flex-shrink:0;
+}
+
+
+/* =====================================================
+   LOADING BUTTON
+===================================================== */
+
+.sp-submit:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+.sp-spinner{
+    width:18px;
+    height:18px;
+
+    border:2px solid rgba(7,17,7,.25);
+
+    border-top-color:#071107;
+
+    border-radius:50%;
+
+    animation:spSpinner .7s linear infinite;
+}
+
+@keyframes spSpinner{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   SUCCESS MODAL
+===================================================== */
+
+.sp-success-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.76);
+
+    backdrop-filter:blur(14px);
+
+}
+
+
+.sp-success-modal{
+
+    width:min(480px,100%);
+
+    padding:48px 38px;
+
+    text-align:center;
+
+    background:#0d0f0e;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    border-radius:28px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.5);
+
+    animation:spSuccessIn .35s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+@keyframes spSuccessIn{
+
+    from{
+        opacity:0;
+        transform:translateY(15px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+
+.sp-success-icon{
+
+    width:72px;
+    height:72px;
+
+    margin:0 auto 24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#9FE870;
+
+    background:rgba(159,232,112,.08);
+
+    border:1px solid rgba(159,232,112,.18);
+
+    font-size:32px;
+
+}
+
+
+.sp-success-modal h2{
+
+    color:white;
+
+    font-size:2rem;
+
+    margin-bottom:16px;
+
+}
+
+
+.sp-success-modal p{
+
+    color:#A1A1AA;
+
+    line-height:1.8;
+
+    font-size:.96rem;
+
+}
+
+
+.sp-success-modal strong{
+
+    color:#D9F99D;
+
+}
+
+
+.sp-success-btn{
+
+    margin-top:30px;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px 34px;
+
+    border-radius:999px;
+
+    background:#9FE870;
+
+    color:#071107;
+
+    font-weight:700;
+
+    font-size:.95rem;
+
+    transition:.25s ease;
+
+}
+
+
+.sp-success-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(159,232,112,.16);
+
+}
+
+
+@media(max-width:520px){
+
+    .sp-success-modal{
+
+        padding:38px 24px;
+
+        border-radius:24px;
+
+    }
+
+    .sp-success-modal h2{
+
+        font-size:1.7rem;
+
+    }
+
+}
